@@ -1,0 +1,58 @@
+###
+
+GET http://localhost:8080/elecTools
+
+
+###
+GET http://localhost:8080/elecTools/1
+
+###
+GET http://localhost:8080/elecTools/4
+
+###กรณีมีเจ้าของเครื่องมือ
+GET http://localhost:8080/elecTools/search?ownerName=Gorya
+
+###กรณีไม่มีชื่อเจ้าของเครื่องมือ
+GET http://localhost:8080/elecTools/search?ownerName=kai
+
+###หาคนยืม
+http://localhost:8080/elecTools/search/borrower/miw
+
+
+###
+POST http://localhost:8080/elecTools
+Content-Type: application/json
+
+{
+    "toolDetail": "cutter",
+    "ownerName": "chet",
+    "locationName": "office drawer",
+    "borrowed": false,
+    "borrowerName": "miw"
+}
+
+###
+PUT http://localhost:8080/elecTools/1
+Content-Type: application/json
+
+{
+    "toolDetail": "Jobsite Radios",
+    "ownerName": "kai",
+    "locationName": "in the box under the desk",
+    "borrowed": false,
+    "borrowerName": null
+}
+
+### update data client แค่บางส่วน
+PUT http://localhost:8080/elecTools/2
+Content-Type: application/json
+
+{
+    "borrowed": true,
+    "borrowerName": "John Doe",
+    "locationName": "Building A"
+}
+
+
+###
+DELETE http://localhost:8080/elecTools/5
